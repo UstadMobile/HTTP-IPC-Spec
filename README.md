@@ -19,6 +19,8 @@ This recipe works as follows:
 * The client app sends a REST API request to the API app (which may, as per the OAuth spec, be the same as the authorization app) by serializing the HTTP request into bytes which are then received by the API app, which in turn serializes its response into bytes for the client app. The client app can now use the same API it would use in an online scenario without requiring Internet access. If authorization took place online (e.g. the authorization app was not installed), then no ```ipc-service``` parameter would be provided and the client app can use the HTTP API over the network.
 
 * The client app MAY use a library such that it can access the API using normal http via an embedded localhost server instead of directly serializing http requests itself.
+  
+* The API app may take care of synchronizing user data for offline use so that client apps can work offline without having to implement offline sync themselves.
 
 Status:
 
