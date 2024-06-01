@@ -22,6 +22,8 @@ This recipe works as follows:
   
 * The API app may take care of synchronizing user data for offline use so that client apps can work offline without having to implement offline sync themselves.
 
+* A client app may obtain a token separately using an SDK or from a link (e.g. where a Learning Management System app launches the math app with a link for a specific lesson and provide a token for the students account). The client app could still use the REST over IPC to access the API provider app.
+
 Status:
 
 This is a very rough draft intended to facilitate discussion and comments. Issues, suggestions etc. are welcome
