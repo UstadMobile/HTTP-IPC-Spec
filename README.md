@@ -1,6 +1,6 @@
 # Offline REST Recipe for Native Apps
 
-[Diagram](img/offline-rest-flow-a.svg)
+![Diagram](img/offline-rest-flow-a.svg "FlowDiagram")
 
 Scenario: 
 
