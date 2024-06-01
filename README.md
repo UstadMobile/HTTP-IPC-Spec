@@ -4,7 +4,7 @@
 
 Scenario: 
 
-The user has an API provider app (e.g. a Learning Management System app) and a client app (e.g. a math app). In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other; typically using [OAuth](https://oauth.net/2/) for the client to get a token, and then using a REST API to access information (e.g. student grade level and class enrollment information using [OneRoster](https://www.1edtech.org/standards/oneroster)).
+The user has an API provider app (e.g. a Learning Management System app) and a client app (e.g. a math app). In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other; typically using [OAuth](https://oauth.net/2/) for the client to get a token, and then using a REST API to access information (e.g. student grade level and class enrollment information using [OneRoster](https://www.1edtech.org/standards/oneroster) or student progress information using [xAPI](https://xapi.com)).
 
 [RFC8252](https://datatracker.ietf.org/doc/html/rfc8252) describes how native apps can use OAuth to get an access token.
 
@@ -16,7 +16,7 @@ This recipe works as follows:
 
 * The client app binds to the service specified by the ```ipc-service``` parameter (using a [bound service](https://developer.android.com/develop/background-work/services/bound-services) on Android or [XPC service](https://developer.apple.com/documentation/xpc) on iOS).
 
-* The client app sends a REST API request to the API app (which may, as per the OAuth spec, be the same as the authorization app) by serializing the HTTP request into bytes which are then received by the API app, which in turn serializes its response into bytes for the client app. The client app can now use the same API it would use in an online scenario without requiring Internet access. If authorization took place online (e.g. the authorization app was not installed), then no ```ipc-service``` parameter would be provided and the client app can use the HTTP API over the network.
+* The client app sends a REST API request to the API app (which may, as per the OAuth spec, be the same as the authorization app) by serializing the HTTP request into bytes which are then received by the API app using the IPC service, which in turn serializes its response into bytes for the client app. The client app can now use the same API it would use in an online scenario without requiring Internet access. If authorization took place online (e.g. the authorization app was not installed), then no ```ipc-service``` parameter would be provided and the client app can use the HTTP API over the network.
 
 * The client app MAY use a library such that it can access the API using normal http via an embedded localhost server instead of directly serializing http requests itself.
   
