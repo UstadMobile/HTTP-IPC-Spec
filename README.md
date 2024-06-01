@@ -22,7 +22,7 @@ This recipe works as follows:
   
 * The API app may take care of synchronizing user data for offline use so that client apps can work offline without having to implement offline sync themselves.
 
-* A client app may obtain a token separately using an SDK or from a link (e.g. where a Learning Management System app launches the math app with a link for a specific lesson and provide a token for the students account). The client app could still use the REST over IPC to access the API provider app.
+* A client app may obtain a token separately using an SDK or where it launched by a link (e.g. where a Learning Management System app launches the math app with a link for a specific lesson including credentials for the students session as happens using xAPI via [CMI-5](https://xapi.com/cmi5/overview/)). The client app can still use the REST over IPC to access the API provider app as long as the link includes the ```ipc-server``` parameter.
 
 Status:
 
