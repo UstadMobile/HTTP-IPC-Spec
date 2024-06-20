@@ -1,6 +1,6 @@
 # Offline REST Recipe for Native Apps
 
-[Diagram](img/offline-rest-flow-b.svg)
+![Diagram](img/offline-rest-flow-b.svg)
 
 **Scenario**: The user has two apps on their phone that need to talk to each other offline, for example a learning management system app and a math app. In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other e.g. [LTI](https://www.1edtech.org/standards/lti).
 
@@ -14,7 +14,7 @@ The learning management system can provide a parameter ```ipc-service``` when la
 
 ### Offline OAuth flow
 
-[Diagram](img/offline-rest-flow-a.svg)
+![Diagram](img/offline-rest-flow-a.svg)
 
 [RFC8252](https://datatracker.ietf.org/doc/html/rfc8252) describes how native apps can use OAuth to get an access token.
 
