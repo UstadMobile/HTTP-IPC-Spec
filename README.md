@@ -1,12 +1,12 @@
 # Offline REST Recipe for Native Apps
 
-<img src="https://github.com/UstadMobile/Offline-REST-Recipe/raw/main/img/offline-rest-flow-b.svg" height="400"/>
+<img src="https://github.com/UstadMobile/Offline-REST-Recipe/raw/main/img/offline-rest-flow-b.svg" height="450"/>
 
 **Scenario**: The user has two apps on their phone that need to talk to each other offline, for example a learning management system app and a math app. In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other e.g. [LTI](https://www.1edtech.org/standards/lti).
 
 **Problem**: It's not possible to run a local server continuously on a mobile device due to background execution limits on [Android](https://developer.android.com/about/versions/oreo/background) and [iOS](https://developer.apple.com/forums/thread/685525). Continuous background services would reduce battery life and performance.
 
-**Solution**: REST HTTP requests can be serialized and sent from the client app using a [bound service](https://developer.android.com/develop/background-work/services/bound-services) on Android or [XPC service](https://developer.apple.com/documentation/xpc) on iOS). The operating system will "wake up" the server app as required.
+**Solution**: REST HTTP requests can be serialized and sent from the client app using a [bound service](https://developer.android.com/develop/background-work/services/bound-services) on Android or [XPC service](https://developer.apple.com/documentation/xpc) on iOS, maybe [SystemXHR](https://developer.kaiostech.com/docs/getting-started/main-concepts/permissions/) on KaiOS). The operating system will "wake up" the server app as required.
 
 The learning management system can provide a parameter ```ipc-service``` when launching a Uri to start a lesson in the math app. The math app can then access REST APIs by sending HTTP requests using the IPC service identified by the ```ipc-service``` parameter.
 
