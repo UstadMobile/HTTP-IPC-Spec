@@ -1,6 +1,6 @@
 # Offline REST Recipe for Native Apps
 
-![Diagram](img/offline-rest-flow-b.svg)
+<img src="https://github.com/UstadMobile/Offline-REST-Recipe/raw/main/img/offline-rest-flow-b.svg" height="600"/>
 
 **Scenario**: The user has two apps on their phone that need to talk to each other offline, for example a learning management system app and a math app. In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other e.g. [LTI](https://www.1edtech.org/standards/lti).
 
