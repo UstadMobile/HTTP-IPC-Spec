@@ -2,7 +2,7 @@
 
 <img src="https://github.com/UstadMobile/Offline-REST-Recipe/raw/main/img/offline-rest-flow-b.svg" height="450"/>
 
-**Scenario**: The user has two apps on their phone that need to talk to each other offline, for example a learning management system app and a math app. In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other e.g. [LTI](https://www.1edtech.org/standards/lti).
+**Scenario**: The user has two apps on their phone that need to talk to each other offline, for example a learning management system app and a math app. In the online world there are well defined REST HTTP APIs that would enable these apps to talk to each other e.g. [LTI](https://www.1edtech.org/standards/lti), [xAPI](https://xapi.com/) etc.
 
 **Problem**: It's not possible to run a local server continuously on a mobile device due to background execution limits on [Android](https://developer.android.com/about/versions/oreo/background) and [iOS](https://developer.apple.com/forums/thread/685525). Continuous background services would reduce battery life and performance.
 
@@ -10,7 +10,12 @@
 
 The learning management system can provide a parameter ```ipc-service``` when launching a Uri to start a lesson in the math app. The math app can then access REST APIs by sending HTTP requests using the IPC service identified by the ```ipc-service``` parameter.
 
-**Why is this needed?**: There are many instances where there are well developed standards for interoperability using http, but there are no equivalent standards using IPC for mobile operating systems. Server apps could use peer-to-peer sync, local-first techniques, or others to take care of synchronizing data locally or with the Internet when a connection is available such that the client app (e.g. the math app) doesn't have to worry about this. 
+A library _may_ be used to run an actual http server (embedded in the client app so it is running when the client app runs), which can allow the developer of the client app to simply use a localhost endpoint to communicate over IPC with the server app the same way they would use a REST API over a network.
+
+**Why is this needed?**: There are many instances where there are well developed standards for interoperability using http, but there are no equivalent standards using IPC for mobile operating systems. Server apps could use peer-to-peer sync, local-first techniques, or others to take care of synchronizing data locally or with the Internet when a connection is available such that the client app (e.g. the math app) doesn't have to worry about this.
+
+**Status**: [UstadMobile](https://www.github.com/UstadMobile/UstadMobile) developed an initial [Android implementation](https://github.com/UstadMobile/httpoveripc) that was used to connect two apps (UstadMobile as an LMS, [Chimple](https://www.chimple.org/)) for a pilot. This is a very rough draft intended to facilitate discussion and comments. Issues, suggestions etc. are welcome
+
 
 ### Offline OAuth flow
 
@@ -34,7 +39,4 @@ This could work as follows:
 
 * A client app may obtain a token separately using an SDK or where it launched by a link (e.g. where a Learning Management System app launches the math app with a link for a specific lesson including credentials for the students session as happens using xAPI via [CMI-5](https://xapi.com/cmi5/overview/)). The client app can still use the REST over IPC to access the API provider app as long as the link includes the ```ipc-server``` parameter.
 
-Status:
-
-This is a very rough draft intended to facilitate discussion and comments. Issues, suggestions etc. are welcome
 
