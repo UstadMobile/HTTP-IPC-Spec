@@ -14,7 +14,7 @@ A library _may_ be used to run an actual http server (embedded in the client app
 
 **Why is this needed?**: There are many instances where there are well developed standards for interoperability using http, but there are no equivalent standards using IPC for mobile operating systems. Server apps could use peer-to-peer sync, local-first techniques, or others to take care of synchronizing data locally or with the Internet when a connection is available such that the client app (e.g. the math app) doesn't have to worry about this.
 
-**Status**: [UstadMobile](https://www.github.com/UstadMobile/UstadMobile) developed an initial [Android implementation](https://github.com/UstadMobile/httpoveripc) that was used to connect two apps (UstadMobile as an LMS, [Chimple](https://www.chimple.org/)) for a pilot. This is a very rough draft intended to facilitate discussion and comments. Issues, suggestions etc. are welcome
+**Status**: [UstadMobile](https://www.github.com/UstadMobile/UstadMobile) developed an initial [Android implementation](https://github.com/UstadMobile/httpoveripc) that was used to connect two apps (UstadMobile as an LMS, [Chimple](https://www.chimple.org/)) for a pilot. This is draft intended to facilitate discussion and comments and facilitate usage. Issues, suggestions etc. are welcome
 
 
 ### Offline OAuth flow
